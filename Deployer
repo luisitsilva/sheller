@@ -7,7 +7,7 @@ pipeline {
         stage('Collect') {
             steps {
                 // Get code from GH repo
-                git 'git remote add origin https://github.com/luisitsilva/sheller.git'
+//                 git 'git remote add origin https://github.com/luisitsilva/sheller.git'
                 sh "sh start.sh"
             }
         }
