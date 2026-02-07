@@ -1,4 +1,17 @@
 def buildApp() {
-    echo 'building application...'
+    echo 'Building application...'
 }
+
+def testApp() {
+    echo 'Testing application...'
+}
+
+def deployApp() {
+    echo 'Deploying application...'
+}
+
+def debugApp() {
+    echo 'Debugging application...'
+}
+
 return this
