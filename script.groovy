@@ -8,6 +8,7 @@ def testApp() {
 
 def deployApp() {
     echo 'Deploying application...'
+    echo "deploying version ${params.VERSION}"
 }
 
 def debugApp() {
