@@ -57,7 +57,8 @@ pipeline {
 
             steps {
                 script {
-                    input message: "Select the destination context to deploy this application to", ok "Done, parameters: [choice(name: 'ONE', choices: ['dev', 'staging', 'prod'], description: 'VIETNAM')]
+                    env.ENV = input message: "Select the destination context to deploy this application to", ok "Done, parameters: [choice(name: 'ONE', choices: ['dev', 'staging', 'prod'], 
+description: '')]
                     gv.deployApp()
                     echo "Deploying to ${ENV}"
                     echo "Deploy OS: ${BASE}"
