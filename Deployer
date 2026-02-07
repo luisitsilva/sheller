@@ -59,12 +59,16 @@ pipeline {
                 ok "Done"
                 parameters {
                     choice(name: 'ENV', choices: ['DEV', 'STAGING', 'PROD'], description: 'App RunGround')
+                    choice(name: 'BASE', choices: ['BASE_WIN', 'BASE_NIX', 'BASE_K8S'], description: 'App BaseGround')
+                    choice(name: 'SAFE', choices: ['SAFE_NET', 'SAFE_DC', 'SAFE_AV'], description: 'App SafeGround')
                 }
             }
             steps {
                 script {
                     gv.deployApp()
                     echo "Deploying to ${ENV}"
+                    echo "Deploy OS: ${BASE}"
+                    echo "Using media: ${SAFE}"
                 }
             }
         }
