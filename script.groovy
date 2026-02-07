@@ -14,4 +14,8 @@ def debugApp() {
     echo 'Debugging application...'
 }
 
+def policeApp() {
+    echo 'Policing application traffic...'
+}
+
 return this
