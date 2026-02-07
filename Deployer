@@ -24,27 +24,33 @@ pipeline {
             }
         }
         stage("test") {
-
             steps {
-                echo 'testing the application...'
+                script {
+                    gv.testApp
+                }
             }
         }
         stage("re-test") {
 
             steps {
-                echo 're-testing the application...'
+                script {
+                    gv.debugApp
+                }
             }
         }
         stage("policing") {
 
             steps {
-                echo 'policing the application...'
+                script {
+                    gv.policeApp
+                }
             }
         }
         stage("deploy") {
             steps {
-                echo 'deploying the application...'
-                echo "deploying version ${params.VERSION}"
+                script {
+                    gv.deployApp
+                }
             }
          }
      }
