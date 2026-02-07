@@ -64,7 +64,7 @@ pipeline {
                             choice(
                                 name: 'ENV',
                                 choices: ['DEV', 'staging', 'prod'],
-                                description: "Deployment environment'
+                                description: "Deployment environment"
                             )
                         ]
                     )
