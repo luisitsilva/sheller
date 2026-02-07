@@ -59,7 +59,7 @@ pipeline {
                 script {
                     env.ENV = input(
                         message: "Select the destination context to deploy this application to",
-                        ok: "Done,
+                        ok: "Done",
                         parameters: [
                             choice(
                                 name: 'ENV',
