@@ -5,8 +5,8 @@ pipeline {
         SERVER_CREDENTIALS = credentials('test-creds')
     }
     parameters {
-        string(name: 'VERSION', defaultValue: '', description: 'version to deploy on prod')
         choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '3 versions')
+        booleanParam(name: 'executeTests', defaultValue: true, description: '')
     }
     stages {
         stage("build") {
@@ -16,7 +16,10 @@ pipeline {
             }
         }
         stage("test") {
-
+            when {
+                expression {
+                    param.executeTests == True
+            }
             steps {
                 echo 'testing the application...'
             }
@@ -29,6 +32,7 @@ pipeline {
                 ]} {
                     sh "some script ${USER}, ${PWD}"
                 }*/
+                echo "deploying version ${params.VERSION}"
             }
         }
      }
