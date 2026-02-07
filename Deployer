@@ -5,7 +5,7 @@ pipeline {
         SERVER_CREDENTIALS = credentials('test-creds')
     }
     parameters {
-        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '3 versions')
+        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0', '1.4.0', 1.5.0'], description: '3 versions')
         booleanParam(name: 'executeTests', defaultValue: true, description: '')
     }
     stages {
@@ -19,6 +19,18 @@ pipeline {
 
             steps {
                 echo 'testing the application...'
+            }
+        }
+        stage("re-test") {
+
+            steps {
+                echo 're-testing the application...'
+            }
+        }
+        stage("policing") {
+
+            steps {
+                echo 'policing the application...'
             }
         }
         stage("deploy") {
