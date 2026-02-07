@@ -71,8 +71,6 @@ pipeline {
 
                     gv.deployApp()
                     echo "Deploying to ${ENV}"
-                    echo "Deploy OS: ${BASE}"
-                    echo "Using media: ${SAFE}"
                 }
             }
         }
