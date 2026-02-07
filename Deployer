@@ -11,5 +11,11 @@ pipeline {
                 sh "sh start.sh"
             }
         }
-     }
+    }
+    post {
+        always {
+            // always do this
+            sh "ls -al"
+        }
+    }
 }
