@@ -54,9 +54,17 @@ pipeline {
             }
         }
         stage("deploy") {
+            input {
+                message "Select the destination context to deploy this application to"
+                ok "Done"
+                parameters {
+                    choice(name: 'ENV', choices: ['DEV', 'STAGING', 'PROD'], description: 'App RunGround')
+                }
+            }
             steps {
                 script {
                     gv.deployApp()
+                    echo "Deploying to ${ENV}"
                 }
             }
         }
